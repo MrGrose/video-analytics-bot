@@ -65,11 +65,11 @@ async def analytics_query(message: types.Message) -> None:
 
         response: str
         if isinstance(result, int):
-            response = f"{result:,}"
-        elif result is not None:
-            response = f"\n{result}"
+            response = str(result) 
+        elif isinstance(result, str) and result:
+            response = result
         else:
-            response = "Нет данных"
+            response = "0"
 
         await message.reply(response, parse_mode="HTML")
 
