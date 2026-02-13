@@ -22,13 +22,13 @@ class AnalyticsRepository:
             return int(value) if value is not None else 0
 
         formatted: list[str] = []
-        for i, row in enumerate(rows, 1):
-            if len(row) == 2:
-                formatted.append(f"{i}. {row[1]}")
+        for row in rows:
+            if row[0] is not None:
+                formatted.append(str(int(row[0])))
             else:
-                formatted.append(str(row[0]))
+                formatted.append("0")
 
-        return "\n".join(formatted)
+        return " ".join(formatted)
 
     async def count_videos(self) -> int:
         result: Result = await self.session.execute(
