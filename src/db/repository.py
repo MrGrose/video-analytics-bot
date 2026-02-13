@@ -24,7 +24,7 @@ class AnalyticsRepository:
         formatted: list[str] = []
         for i, row in enumerate(rows, 1):
             if len(row) == 2:
-                formatted.append(f"{i}. {row[1]:,}")
+                formatted.append(f"{i}. {row[1]}")
             else:
                 formatted.append(str(row[0]))
 
